@@ -1,0 +1,76 @@
+augs:
+  LR: 0.5
+  UD: 0.0
+  brightness: 0.25
+  contrast: 0.1
+  crop_size: null
+  degrees: 10
+  normalization:
+    N: 325658073600
+    mean:
+    - 0.5796618770867873
+    - 0.5733572097197586
+    - 0.5311156080965762
+    std:
+    - 0.1207718518283661
+    - 0.11532343380871006
+    - 0.11644959741710435
+  pad: null
+  random_resize: false
+  resize:
+  - 128
+  - 256
+compute:
+  batch_size: 2
+  distributed: false
+  gpu_id: 0
+  num_workers: 8
+feature_extractor:
+  arch: resnet50
+  curriculum: false
+  dropout_p: 0.25
+  final_activation: sigmoid
+  fusion: average
+  inputs: both
+  n_flows: 10
+  n_rgb: 1
+  sampler: null
+  sampling_ratio: null
+  weight_decay: 0
+  weights: C:/FST_201223_deepethogram/models/210827_225113_feature_extractor_train/checkpoint.pt
+flow_generator:
+  arch: MotionNet
+  flow_loss: MotionNet
+  flow_max: 10
+  flow_sparsity: false
+  input_images: 11
+  loss: MotionNet
+  max: 10
+  n_rgb: 11
+  smooth_weight_multiplier: 1.0
+  sparsity_weight: 0.0
+  type: flow_generator
+  weights: C:/FST_201223_deepethogram/models/210118_084646_flow_generator_train_None/checkpoint.pt
+notes: null
+preset: deg_m
+project:
+  class_names:
+  - background
+  - Swimming
+  - Immobile
+  - Posturalcorrections
+  config_file: C:/FST_201223_deepethogram\project_config.yaml
+  data_path: DATA
+  labeler: null
+  model_path: models
+  name: FST_201223
+  path: C:/FST_201223_deepethogram
+sequence:
+  filter_length: 15
+split:
+  file: C:/FST_201223_deepethogram/DATA/split.yaml
+  reload: true
+train:
+  loss_weight_exp: 0.5
+  patience: 10
+  reduction_factor: 0.3162277
